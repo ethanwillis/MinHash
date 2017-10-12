@@ -36,6 +36,8 @@ func base_to_num(base byte) int {
 }
 
 //-----------------------------------------------------------------------------
+// return the decimal value of a k-mer (A=0,C=1,G=2,T=3)
+//-----------------------------------------------------------------------------
 func kmer_to_dec(kmer string) int {
 	value := 0
 	exp := 1
