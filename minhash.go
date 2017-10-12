@@ -89,8 +89,7 @@ func random_dna(n int) string {
 	bases := []byte{'A', 'C', 'G', 'T'}
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	for i := 0; i < n; i++ {
-		base := bases[r.Intn(4)]
-		s[i] = base
+		s[i] = bases[r.Intn(4)]
 	}
 	return string(s)
 }
