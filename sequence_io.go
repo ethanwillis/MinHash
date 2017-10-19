@@ -10,14 +10,14 @@ type SeqRecord struct {
 	Name, Seq, Qual string
 }
 
-type FastqReader struct {
+type SeqReader struct {
 	Reader          *bufio.Reader
 	last, seq, qual []byte 
 	finished        bool
 	rec             record
 }
 
-func (fq *FastqReader) iterLines() ([]byte, bool) {
+func (fq *SeqReader) iterLines() ([]byte, bool) {
 	line, err := fq.Reader.ReadSlice('\n')
   	if err != nil {
     	if err == io.EOF {
@@ -30,7 +30,7 @@ func (fq *FastqReader) iterLines() ([]byte, bool) {
 }
 
 
-func (fq *FastqReader) Iter() (record, bool) {
+func (fq *SeqReader) FastaRead() (record, bool) {
 	if fq.finished {
 		return fq.rec, fq.finished
 	}
