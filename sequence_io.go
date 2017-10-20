@@ -14,7 +14,7 @@ type SeqReader struct {
 	Reader          *bufio.Reader
 	last, seq, qual []byte
 	finished        bool
-	rec             record
+	rec             SeqRecord
 }
 
 func (fq *SeqReader) iterLines() ([]byte, bool) {
@@ -29,7 +29,7 @@ func (fq *SeqReader) iterLines() ([]byte, bool) {
 	return line, false
 }
 
-func (fq *SeqReader) FastaRead() (record, bool) {
+func (fq *SeqReader) FastaRead() (SeqRecord, bool) {
 	if fq.finished {
 		return fq.rec, fq.finished
 	}
